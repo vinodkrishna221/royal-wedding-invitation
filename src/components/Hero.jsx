@@ -36,7 +36,7 @@ const Hero = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsOpen(true);
-        }, 1000);
+        }, 800);
         return () => clearTimeout(timer);
     }, []);
 
@@ -46,53 +46,56 @@ const Hero = () => {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            {/* Tilt Wrapper */}
-            <motion.div
-                className="relative w-[90%] max-w-md aspect-[3/4] transform-style-3d"
-                style={{ rotateX, rotateY }}
-            >
-                {/* Card Flipper */}
+            {/* Book Container */}
+            <div className="relative w-[90%] max-w-2xl h-[500px] transform-style-3d perspective" onClick={() => setIsOpen(!isOpen)}>
+                {/* Book Spine/Spine (Middle divider) */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-maroon/30 z-10 transform -translate-x-1/2"></div>
+
+                {/* Left Page (Front Cover) */}
                 <motion.div
-                    className="w-full h-full relative transform-style-3d"
-                    animate={{ rotateY: isOpen ? 180 : 0 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                    className="absolute left-0 top-0 w-1/2 h-full bg-maroon rounded-l-lg shadow-2xl border-4 border-yellow-500/30 flex flex-col items-center justify-center p-6 transform-style-3d"
+                    animate={{ rotateY: isOpen ? -20 : 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    style={{ perspective: "1200px" }}
                 >
-                    {/* Front of Envelope */}
-                    <div className="absolute inset-0 bg-maroon rounded-lg shadow-2xl flex items-center justify-center backface-hidden z-20 border-4 border-yellow-500/30 overflow-hidden">
-                        {/* Shimmer Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_3s_infinite]"></div>
-
-                        <div className="text-center p-8 border-2 border-yellow-500/50 m-4 h-[90%] flex flex-col justify-center items-center relative z-10">
-                            <h1 className="text-4xl md:text-6xl text-gold mb-4">
-                                <SplitText>The Wedding</SplitText>
-                            </h1>
-                            <div className="w-16 h-16 border-2 border-gold rounded-full flex items-center justify-center mb-4">
-                                <span className="font-cinzel text-gold text-2xl">W</span>
-                            </div>
-                            <p className="text-cream/80 font-cormorant text-xl">You are cordially invited</p>
+                    {/* Shimmer Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_3s_infinite] rounded-l-lg"></div>
+                    <div className="relative z-10 text-center">
+                        <h1 className="text-3xl md:text-4xl text-gold mb-3">
+                            <SplitText>The Wedding</SplitText>
+                        </h1>
+                        <div className="w-12 h-12 border-2 border-gold rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span className="font-cinzel text-gold text-xl">W</span>
                         </div>
-                    </div>
-
-                    {/* Back of Envelope (Inside) - The Card */}
-                    <div className="absolute inset-0 bg-cream rounded-lg shadow-2xl flex flex-col items-center justify-center backface-hidden rotate-y-180 z-10 border-8 border-double border-maroon/20 p-4 overflow-y-auto">
-                        <div className="absolute inset-0 opacity-10 bg-mandala bg-repeat"></div>
-                        <div className="relative z-10 text-center flex flex-col items-center justify-center h-full w-full px-2">
-                            <p className="font-cormorant text-xs md:text-sm text-maroon/60 mb-1">Sree Lakshmi Venkateswara Swamy Prasannaha</p>
-                            <p className="font-cormorant text-xs md:text-sm text-maroon/60 mb-2">Sree Urukundu Eranna Swamy Prasannaha</p>
-                            <h2 className="font-cinzel text-base md:text-lg text-maroon mb-2">Naraboyula Family's</h2>
-                            <h1 className="font-cormorant text-xl md:text-2xl text-maroon mb-2 italic">Wedding Invitation</h1>
-                            <p className="font-lato text-xs md:text-sm text-maroon/80 mb-2">Smt. Jadla Lakshmidevi & Sri Jadla Venkatesulu,</p>
-                            <p className="font-lato text-xs text-maroon/70 mb-3">Tharanath Hospital Road, Anantapur Road, BELLARY.</p>
-                            <p className="font-cormorant text-sm md:text-base text-maroon/80 mb-2 italic leading-tight">We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our youngest son</p>
-                            <h3 className="font-cinzel text-lg md:text-xl text-maroon mb-1">Chi. B. Nagaraju</h3>
-                            <p className="font-lato text-xs text-maroon/70 mb-2">(Grand son of Late Smt. Jadla Ramamma & Late Sri Jadla Nagappa.)</p>
-                            <p className="font-cormorant text-base text-maroon/80 italic mb-2">with</p>
-                            <h3 className="font-cinzel text-lg md:text-xl text-maroon mb-1">Chi. Kum. Sow. Purnima</h3>
-                            <p className="font-lato text-xs text-maroon/70">(Youngest daughter of Smt. G.B. Nagarathnamma & Late Sri Chidanada Badanahal.)</p>
-                        </div>
+                        <p className="text-cream/80 font-cormorant text-base">You are cordially invited</p>
                     </div>
                 </motion.div>
-            </motion.div>
+
+                {/* Right Page (Inside Content) */}
+                <motion.div
+                    className="absolute right-0 top-0 w-1/2 h-full bg-cream rounded-r-lg shadow-2xl border-8 border-double border-maroon/20 p-6 overflow-y-auto transform-style-3d"
+                    animate={{ rotateY: isOpen ? 0 : 20 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    style={{ perspective: "1200px" }}
+                >
+                    <div className="absolute inset-0 opacity-10 bg-mandala bg-repeat rounded-r-lg"></div>
+                    <div className="relative z-10 text-center space-y-2">
+                        <p className="font-cormorant text-[10px] md:text-xs text-maroon/60">Sree Lakshmi Venkateswara Swamy Prasannaha</p>
+                        <p className="font-cormorant text-[10px] md:text-xs text-maroon/60">Sree Urukundu Eranna Swamy Prasannaha</p>
+                        <h2 className="font-cinzel text-sm md:text-base text-maroon">Naraboyula Family's</h2>
+                        <h1 className="font-cormorant text-lg md:text-xl text-maroon italic">Wedding Invitation</h1>
+                        <hr className="border-maroon/20 my-2" />
+                        <p className="font-lato text-[10px] md:text-xs text-maroon/80">Smt. Jadla Lakshmidevi & Sri Jadla Venkatesulu,</p>
+                        <p className="font-lato text-[10px] text-maroon/70">Tharanath Hospital Road, Anantapur Road, BELLARY.</p>
+                        <p className="font-cormorant text-xs md:text-sm text-maroon/80 italic leading-tight">We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our youngest son</p>
+                        <h3 className="font-cinzel text-sm md:text-base text-maroon">Chi. B. Nagaraju</h3>
+                        <p className="font-lato text-[10px] text-maroon/70">(Grand son of Late Smt. Jadla Ramamma & Late Sri Jadla Nagappa.)</p>
+                        <p className="font-cormorant text-sm text-maroon/80 italic">with</p>
+                        <h3 className="font-cinzel text-sm md:text-base text-maroon">Chi. Kum. Sow. Purnima</h3>
+                        <p className="font-lato text-[10px] text-maroon/70">(Youngest daughter of Smt. G.B. Nagarathnamma & Late Sri Chidanada Badanahal.)</p>
+                    </div>
+                </motion.div>
+            </div>
 
             <motion.div
                 className="absolute bottom-8 flex flex-col items-center text-maroon cursor-pointer"
