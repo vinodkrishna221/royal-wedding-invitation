@@ -1,7 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import SplitText from './SplitText';
+
+// SplitText component for letter animation
+const SplitText = ({ children }) => {
+    const letters = children.split('');
+    return (
+        <>
+            {letters.map((letter, index) => (
+                <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.5 }}
+                    className="inline-block"
+                >
+                    {letter === ' ' ? '\u00A0' : letter}
+                </motion.span>
+            ))}
+        </>
+    );
+};
 
 const Hero = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,78 +61,102 @@ const Hero = () => {
 
     return (
         <section
-            className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden perspective-1000"
+            className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 py-8"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            style={{ perspective: '1000px' }}
         >
             {/* Tilt Wrapper */}
             <motion.div
-                className="relative w-[90%] max-w-md aspect-[3/4] transform-style-3d"
-                style={{ rotateX, rotateY }}
+                className="relative w-[90%] max-w-md aspect-[3/4] mb-16"
+                style={{ 
+                    rotateX, 
+                    rotateY,
+                    transformStyle: 'preserve-3d'
+                }}
             >
                 {/* Card Flipper */}
                 <motion.div
-                    className="w-full h-full relative transform-style-3d"
+                    className="w-full h-full relative"
+                    style={{ transformStyle: 'preserve-3d' }}
                     animate={{ rotateY: isOpen ? 180 : 0 }}
                     transition={{ duration: 1.5, ease: "easeInOut" }}
                 >
                     {/* Front of Envelope */}
-                    <div className="absolute inset-0 bg-maroon rounded-lg shadow-2xl flex items-center justify-center backface-hidden z-20 border-4 border-yellow-500/30 overflow-hidden">
+                    <div 
+                        className="absolute inset-0 bg-gradient-to-br from-red-900 via-red-800 to-red-900 rounded-lg shadow-2xl flex items-center justify-center z-20 border-4 border-yellow-600/40 overflow-hidden"
+                        style={{ backfaceVisibility: 'hidden' }}
+                    >
                         {/* Shimmer Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_3s_infinite]"></div>
+                        <div 
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full"
+                            style={{ animation: 'shimmer 3s infinite' }}
+                        ></div>
 
-                        <div className="text-center p-8 border-2 border-yellow-500/50 m-4 h-[90%] flex flex-col justify-center items-center relative z-10">
-                            <h1 className="text-4xl md:text-6xl text-gold mb-4">
+                        <div className="text-center p-8 border-2 border-yellow-600/60 m-4 h-[90%] flex flex-col justify-center items-center relative z-10">
+                            <h1 className="text-4xl md:text-5xl text-yellow-600 mb-4 font-serif italic">
                                 <SplitText>The Wedding</SplitText>
                             </h1>
-                            <div className="w-16 h-16 border-2 border-gold rounded-full flex items-center justify-center mb-4">
-                                <span className="font-cinzel text-gold text-2xl">W</span>
+                            <div className="w-16 h-16 border-2 border-yellow-600 rounded-full flex items-center justify-center mb-4">
+                                <span className="text-yellow-600 text-2xl font-serif">W</span>
                             </div>
-                            <p className="text-cream/80 font-cormorant text-xl">You are cordially invited</p>
+                            <p className="text-amber-100/90 font-serif text-xl italic">You are cordially invited</p>
                         </div>
                     </div>
 
                     {/* Back of Envelope (Inside) - The Card */}
-                    <div className="absolute inset-0 bg-cream rounded-lg shadow-2xl flex flex-col items-center justify-center backface-hidden rotate-y-180 z-10 border-8 border-double border-maroon/20 p-6 overflow-y-auto">
-                        <div className="absolute inset-0 opacity-10 bg-mandala bg-repeat"></div>
-                        <div className="relative z-10 text-center flex flex-col items-center justify-center h-full w-full px-4 space-y-3">
-                            <p className="font-cormorant text-sm md:text-base text-maroon/70">Sree Lakshmi Venkateswara Swamy Prasannaha</p>
-                            <p className="font-cormorant text-sm md:text-base text-maroon/70">Sree Urukundu Eranna Swamy Prasannaha</p>
+                    <div 
+                        className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg shadow-2xl flex flex-col items-center justify-start z-10 border-8 border-double border-red-900/20 p-4 overflow-y-auto"
+                        style={{ 
+                            backfaceVisibility: 'hidden',
+                            transform: 'rotateY(180deg)'
+                        }}
+                    >
+                        <div className="relative z-10 text-center flex flex-col items-center w-full px-2 space-y-2 py-4">
+                            <p className="font-serif text-xs md:text-sm text-red-900/70 leading-tight">Sree Lakshmi Venkateswara Swamy Prasannaha</p>
+                            <p className="font-serif text-xs md:text-sm text-red-900/70 leading-tight">Sree Urukundu Eranna Swamy Prasannaha</p>
 
-                            <div className="w-16 h-0.5 bg-gold mx-auto my-2"></div>
+                            <div className="w-16 h-0.5 bg-yellow-700 mx-auto my-1"></div>
 
-                            <h2 className="font-cinzel text-xl md:text-2xl text-maroon">Naraboyula Family's</h2>
-                            <h1 className="font-cormorant text-3xl md:text-4xl text-maroon italic font-bold tracking-wide">Wedding Invitation</h1>
+                            <h2 className="font-serif text-lg md:text-xl text-red-900 font-semibold">Naraboyula Family's</h2>
+                            <h1 className="font-serif text-2xl md:text-3xl text-red-900 italic font-bold tracking-wide">Wedding Invitation</h1>
 
-                            <div className="w-16 h-0.5 bg-gold mx-auto my-2"></div>
+                            <div className="w-16 h-0.5 bg-yellow-700 mx-auto my-1"></div>
 
-                            <div className="space-y-1 mb-3">
-                                <p className="font-lato text-sm md:text-base text-maroon/80">Smt. Jadla Lakshmidevi & Sri Jadla Venkatesulu,</p>
-                                <p className="font-lato text-xs md:text-sm text-maroon/70">Tharanath Hospital Road, Anantapur Road, BELLARY.</p>
+                            <div className="space-y-0.5 my-2">
+                                <p className="text-xs md:text-sm text-red-900/80 leading-snug">Smt. Jadla Lakshmidevi & Sri Jadla Venkatesulu,</p>
+                                <p className="text-xs text-red-900/70 leading-snug">Tharanath Hospital Road, Anantapur Road, BELLARY.</p>
                             </div>
 
-                            <p className="font-cormorant text-base md:text-lg text-maroon/90 italic leading-relaxed max-w-sm">We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our youngest son</p>
+                            <p className="font-serif text-sm md:text-base text-red-900/90 italic leading-relaxed max-w-sm px-2">We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our youngest son</p>
 
-                            <h3 className="font-cinzel text-2xl md:text-3xl text-maroon mt-3">Chi. B. Nagaraju</h3>
-                            <p className="font-lato text-xs md:text-sm text-maroon/70">(Grand son of Late Smt. Jadla Ramamma & Late Sri Jadla Nagappa.)</p>
+                            <h3 className="font-serif text-xl md:text-2xl text-red-900 mt-2 font-bold">Chi. B. Nagaraju</h3>
+                            <p className="text-xs text-red-900/70 leading-tight px-2">(Grand son of Late Smt. Jadla Ramamma & Late Sri Jadla Nagappa.)</p>
 
-                            <p className="font-cormorant text-xl md:text-2xl text-maroon/80 italic my-2">with</p>
+                            <p className="font-serif text-lg md:text-xl text-red-900/80 italic my-1">with</p>
 
-                            <h3 className="font-cinzel text-2xl md:text-3xl text-maroon">Chi. Kum. Sow. Purnima</h3>
-                            <p className="font-lato text-xs md:text-sm text-maroon/70">(Youngest daughter of Smt. G.B. Nagarathnamma & Late Sri Chidanada Badanahal.)</p>
+                            <h3 className="font-serif text-xl md:text-2xl text-red-900 font-bold">Chi. Kum. Sow. Purnima</h3>
+                            <p className="text-xs text-red-900/70 leading-tight px-2 mb-4">(Youngest daughter of Smt. G.B. Nagarathnamma & Late Sri Chidanada Badanahal.)</p>
                         </div>
                     </div>
                 </motion.div>
             </motion.div>
 
             <motion.div
-                className="absolute bottom-8 flex flex-col items-center text-maroon cursor-pointer"
+                className="flex flex-col items-center text-red-900 cursor-pointer mt-4"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
             >
-                <span className="font-cormorant text-lg mb-2">Scroll for Details</span>
-                <ChevronDown />
+                <span className="font-serif text-base mb-2">Scroll for Details</span>
+                <ChevronDown className="w-6 h-6" />
             </motion.div>
+
+            <style jsx>{`
+                @keyframes shimmer {
+                    0% { transform: translateX(-100%); }
+                    100% { transform: translateX(100%); }
+                }
+            `}</style>
         </section>
     );
 };
