@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import Loader from './components/Loader';
 import Hero from './components/Hero';
 import Events from './components/Events';
-import MapSection from './components/MapSection';
-import GiftRegistry from './components/GiftRegistry';
 import RSVP from './components/RSVP';
 import Particles from './components/Particles';
 import Lenis from 'lenis';
@@ -48,8 +46,6 @@ function App() {
                     <Particles />
                     <Hero />
                     <Events />
-                    <MapSection />
-                    <GiftRegistry />
                     <RSVP />
 
                     <footer className="py-8 text-center text-maroon/40 font-lato text-sm relative z-10">
