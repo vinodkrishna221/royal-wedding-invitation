@@ -113,8 +113,8 @@ const Hero = () => {
                         }}
                     >
                         <div className="relative z-10 text-center flex flex-col items-center w-full px-2 space-y-1">
-                            <p className="font-serif text-[0.6rem] md:text-xs text-red-900/70 leading-tight">Sree Lakshmi Venkateswara Swamy Prasannaha</p>
-                            <p className="font-serif text-[0.6rem] md:text-xs text-red-900/70 leading-tight">Sree Urukundu Eranna Swamy Prasannaha</p>
+                            <p className="font-serif text-[0.3rem] md:text-xs text-red-900/70 leading-tight">Sree Lakshmi Venkateswara Swamy Prasannaha</p>
+                            <p className="font-serif text-[0.3rem] md:text-xs text-red-900/70 leading-tight">Sree Urukundu Eranna Swamy Prasannaha</p>
 
                             <div className="w-12 h-0.5 bg-yellow-700 mx-auto my-1"></div>
 
@@ -124,19 +124,19 @@ const Hero = () => {
                             <div className="w-12 h-0.5 bg-yellow-700 mx-auto my-1"></div>
 
                             <div className="space-y-0 my-1">
-                                <p className="text-[0.65rem] md:text-xs text-red-900/80 leading-tight">Smt. Jadla Lakshmidevi & Sri Jadla Venkatesulu,</p>
-                                <p className="text-[0.6rem] md:text-[0.65rem] text-red-900/70 leading-tight">Tharanath Hospital Road, Anantapur Road, BELLARY.</p>
+                                <p className="text-[0.45rem] md:text-xs text-red-900/80 leading-tight">Smt. Jadla Lakshmidevi & Sri Jadla Venkatesulu,</p>
+                                <p className="text-[0.4rem] md:text-[0.65rem] text-red-900/70 leading-tight">Tharanath Hospital Road, Anantapur Road, BELLARY.</p>
                             </div>
 
-                            <p className="font-serif text-[0.7rem] md:text-sm text-red-900/90 italic leading-snug max-w-sm px-1 my-1">We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our youngest son</p>
+                            <p className="font-serif text-[0.4rem] md:text-sm text-red-900/90 italic leading-snug max-w-sm px-1 my-1">We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our youngest son</p>
 
                             <h3 className="font-serif text-base md:text-lg text-red-900 mt-1 font-bold">Chi. B. Nagaraju</h3>
-                            <p className="text-[0.6rem] md:text-xs text-red-900/70 leading-tight px-2">(Grand son of Late Smt. Jadla Ramamma & Late Sri Jadla Nagappa.)</p>
+                            <p className="text-[0.4rem] md:text-xs text-red-900/70 leading-tight px-2">(Grand son of Late Smt. Jadla Ramamma & Late Sri Jadla Nagappa.)</p>
 
                             <p className="font-serif text-sm md:text-base text-red-900/80 italic my-0.5">with</p>
 
                             <h3 className="font-serif text-base md:text-lg text-red-900 font-bold">Chi. Kum. Sow. Purnima</h3>
-                            <p className="text-[0.6rem] md:text-xs text-red-900/70 leading-tight px-2">(Youngest daughter of Smt. G.B. Nagarathnamma & Late Sri Chidanada Badanahal.)</p>
+                            <p className="text-[0.4rem] md:text-xs text-red-900/70 leading-tight px-2">(Youngest daughter of Smt. G.B. Nagarathnamma & Late Sri Chidanada Badanahal.)</p>
                         </div>
                     </div>
                 </motion.div>
