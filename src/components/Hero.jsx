@@ -74,16 +74,21 @@ const Hero = () => {
                     </div>
 
                     {/* Back of Envelope (Inside) - The Card */}
-                    <div className="absolute inset-0 bg-cream rounded-lg shadow-2xl flex flex-col items-center justify-center backface-hidden rotate-y-180 z-10 border-8 border-double border-maroon/20 p-4">
+                    <div className="absolute inset-0 bg-cream rounded-lg shadow-2xl flex flex-col items-center justify-center backface-hidden rotate-y-180 z-10 border-8 border-double border-maroon/20 p-4 overflow-y-auto">
                         <div className="absolute inset-0 opacity-10 bg-mandala bg-repeat"></div>
-                        <div className="relative z-10 text-center flex flex-col items-center justify-center h-full w-full">
-                            <h2 className="font-cormorant text-lg md:text-xl text-maroon mb-2 leading-tight">With the blessings of our parents</h2>
-                            <h1 className="font-cinzel text-2xl md:text-4xl text-maroon mb-3 leading-tight">Priya <br /> & <br /> Rahul</h1>
-                            <p className="font-cormorant text-base md:text-lg text-maroon/80 mb-4">Request the honor of your presence</p>
-                            <div className="border-t border-b border-maroon/30 py-2 my-2 w-3/4">
-                                <p className="font-lato text-base md:text-lg text-maroon">DECEMBER 12, 2025</p>
-                                <p className="font-lato text-xs md:text-sm text-maroon/70">AT 7:00 PM</p>
-                            </div>
+                        <div className="relative z-10 text-center flex flex-col items-center justify-center h-full w-full px-2">
+                            <p className="font-cormorant text-xs md:text-sm text-maroon/60 mb-1">Sree Lakshmi Venkateswara Swamy Prasannaha</p>
+                            <p className="font-cormorant text-xs md:text-sm text-maroon/60 mb-2">Sree Urukundu Eranna Swamy Prasannaha</p>
+                            <h2 className="font-cinzel text-base md:text-lg text-maroon mb-2">Naraboyula Family's</h2>
+                            <h1 className="font-cormorant text-xl md:text-2xl text-maroon mb-2 italic">Wedding Invitation</h1>
+                            <p className="font-lato text-xs md:text-sm text-maroon/80 mb-2">Smt. Jadla Lakshmidevi & Sri Jadla Venkatesulu,</p>
+                            <p className="font-lato text-xs text-maroon/70 mb-3">Tharanath Hospital Road, Anantapur Road, BELLARY.</p>
+                            <p className="font-cormorant text-sm md:text-base text-maroon/80 mb-2 italic leading-tight">We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our youngest son</p>
+                            <h3 className="font-cinzel text-lg md:text-xl text-maroon mb-1">Chi. B. Nagaraju</h3>
+                            <p className="font-lato text-xs text-maroon/70 mb-2">(Grand son of Late Smt. Jadla Ramamma & Late Sri Jadla Nagappa.)</p>
+                            <p className="font-cormorant text-base text-maroon/80 italic mb-2">with</p>
+                            <h3 className="font-cinzel text-lg md:text-xl text-maroon mb-1">Chi. Kum. Sow. Purnima</h3>
+                            <p className="font-lato text-xs text-maroon/70">(Youngest daughter of Smt. G.B. Nagarathnamma & Late Sri Chidanada Badanahal.)</p>
                         </div>
                     </div>
                 </motion.div>

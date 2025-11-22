@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Loader from './components/Loader';
 import Hero from './components/Hero';
-import { Couple, Groom } from './components/Couple';
 import Events from './components/Events';
 import MapSection from './components/MapSection';
 import GiftRegistry from './components/GiftRegistry';
@@ -48,16 +47,14 @@ function App() {
                     <AudioPlayer />
                     <Particles />
                     <Hero />
-                    <Couple />
-                    <Groom />
                     <Events />
                     <MapSection />
                     <GiftRegistry />
                     <RSVP />
 
                     <footer className="py-8 text-center text-maroon/40 font-lato text-sm relative z-10">
-                        <p>&copy; 2025 Priya & Rahul. All rights reserved.</p>
-                        <p className="mt-1 text-xs">Designed with ❤️ for the Royal Union</p>
+                        <p>&copy; 2025 Naraboyula Family. All rights reserved.</p>
+                        <p className="mt-1 text-xs">With best compliments from Friends & Relatives</p>
                     </footer>
                 </main>
             )}

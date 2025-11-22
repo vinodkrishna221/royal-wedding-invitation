@@ -5,26 +5,18 @@ import SplitText from './SplitText';
 
 const events = [
     {
-        title: "Sangeet",
-        date: "December 11, 2025",
-        time: "6:00 PM Onwards",
-        location: "The Grand Ballroom",
-        icon: <Music className="w-6 h-6 md:w-8 md:h-8 text-gold" />,
-        image: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-        title: "The Wedding",
-        date: "December 12, 2025",
-        time: "10:00 AM",
-        location: "Royal Palace Gardens",
+        title: "Sumuhurtham",
+        date: "26-11-2025 Wednesday",
+        time: "8:30 a.m. to 9:30 a.m., Dhanur Lagnam",
+        location: "Sri Anjaneya Swamy Temple, Badanahal Village, D. Hiral Mandal, Ananthapur Dist. A.P.",
         icon: <Heart className="w-6 h-6 md:w-8 md:h-8 text-gold" />,
         image: "https://images.unsplash.com/photo-1605218427368-35b0f9969220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
         title: "Reception",
-        date: "December 13, 2025",
-        time: "7:00 PM",
-        location: "Crystal Banquet Hall",
+        date: "27-11-2025 Thursday",
+        time: "11:30 a.m.",
+        location: "Sree Surya Bhavan Function Hall, Near Tharanath Hospital, Ananthapur Road, Bellary.",
         icon: <Utensils className="w-6 h-6 md:w-8 md:h-8 text-gold" />,
         image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
@@ -78,13 +70,13 @@ const Card = ({ event, index }) => {
                         <h3 className="text-xl md:text-2xl text-gold font-cinzel whitespace-normal">{event.title}</h3>
                     </div>
                     <div className="space-y-2 text-cream/90 font-lato">
-                        <p className="flex items-center gap-2 text-sm md:text-base">
+                        <p className="text-sm md:text-base">
                             <span className="font-bold">Date:</span> {event.date}
                         </p>
-                        <p className="flex items-center gap-2 text-sm md:text-base">
+                        <p className="text-sm md:text-base">
                             <span className="font-bold">Time:</span> {event.time}
                         </p>
-                        <p className="flex items-center gap-2 text-sm md:text-base">
+                        <p className="text-sm md:text-base">
                             <span className="font-bold">Venue:</span> {event.location}
                         </p>
                     </div>
