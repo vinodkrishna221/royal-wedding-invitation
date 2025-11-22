@@ -9,14 +9,6 @@ const events = [
         date: "26-11-2025 Wednesday",
         time: "8:30 a.m. to 9:30 a.m., Dhanur Lagnam",
         location: "Sri Anjaneya Swamy Temple, Badanahal Village, D. Hiral Mandal, Ananthapur Dist. A.P.",
-        icon: <Music className="w-6 h-6 md:w-8 md:h-8 text-gold" />,
-        image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-        title: "The Wedding",
-        date: "26-11-2025 Wednesday",
-        time: "8:30 a.m. to 9:30 a.m.",
-        location: "Sri Anjaneya Swamy Temple, Badanahal Village, D. Hiral Mandal, Ananthapur Dist. A.P.",
         icon: <Heart className="w-6 h-6 md:w-8 md:h-8 text-gold" />,
         image: "https://images.unsplash.com/photo-1605218427368-35b0f9969220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
@@ -110,7 +102,7 @@ const Events = () => {
                 <p className="font-cormorant text-xl text-maroon/70">Join us in our joyous moments</p>
             </motion.div>
 
-            <div className="flex flex-wrap gap-6 pb-10 px-4 justify-center">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-10 px-4 md:justify-center scrollbar-hide">
                 {events.map((event, index) => (
                     <Card key={index} event={event} index={index} />
                 ))}
